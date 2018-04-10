@@ -8,8 +8,27 @@ def add_polygon(points, x0, y0, z0, x1, y1, z1, x2, y2, z2):
   add_point(points, x2, y2, z2)
 
 
-def draw_polygons( points, screen, color ):
-  pass
+# assumes correct number of points
+# uses cross_product function
+def draw_polygons(points, screen, color):
+  i = 0
+  while (i <= (len(matrix) - 3)):
+    p0 = matrix[i]
+    p1 = matrix[i + 1]
+    p2 = matrix[i + 2]
+    vector1 = [(p1[0] - p0[0]), (p1[1] - p0[1]), (p1[2] - p0[2])]
+    vector2 = [(p2[0] - p0[0]), (p2[1] - p0[1]), (p2[2] - p0[2])]
+    cp = cross_product(vector1, vector2)
+
+    if (cp[2] > 0): # z component
+      p0 = [int x for x in p0]
+      p1 = [int x for x in p1]
+      p2 = [int x for x in p2]
+      draw_line(p0[0], p0[1], p1[0], p1[1], screen, color)
+      draw_line(p1[0], p1[1], p2[0], p2[1], screen, color)
+      draw_line(p2[0], p2[1], p0[0], p0[1], screen, color)
+    i += 3
+
 
 def add_box( points, x, y, z, width, height, depth ):
   x1 = x + width
