@@ -6,6 +6,7 @@ import math
 
 screen = new_screen()
 color = [ 0, 255, 0 ]
+gold = [255, 215, 0]
 edges = []
 transform = new_matrix()
 
@@ -15,3 +16,5 @@ transform = new_matrix()
 # print
 
 parse_file( 'script', edges, transform, screen, color )
+# parse_file( 'script2', edges, transform, screen, gold )
+# parse_file( 'script3', edges, transform, screen, gold )
