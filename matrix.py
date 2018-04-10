@@ -105,6 +105,14 @@ def matrix_mult( m1, m2 ):
               m1[3][r] * tmp[3])
     point+= 1
 
+
+def cross_product(m1, m2):
+  m = [m1[1]*m2[2] - m1[2]*m2[1],
+       m1[2]*m2[0] - m1[0]*m2[2],
+       m1[0]*m2[1] - m1[1]*m2[0]]
+  return m
+
+
 def new_matrix(rows = 4, cols = 4):
   m = []
   for c in range( cols ):
