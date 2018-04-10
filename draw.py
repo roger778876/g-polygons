@@ -74,6 +74,7 @@ def add_sphere( edges, cx, cy, cz, r, step ):
       add_polygon(edges, points[index][0], points[index][1], points[index][2], points[index+1][0], points[index+1][1], points[index+1][2], points[next][0], points[next][1], points[next][2])
       add_polygon(edges, points[index+1][0], points[index+1][1], points[index+1][2], points[next+1][0], points[next+1][1], points[next+1][2], points[next][0], points[next][1], points[next][2])
 
+
 def generate_sphere( cx, cy, cz, r, step ):
   points = []
 
@@ -109,7 +110,7 @@ def add_torus( edges, cx, cy, cz, r0, r1, step ):
       index = (lat * step) + longt
       next = (index + longt_stop) % (lat_stop * longt_stop)
       t = (index + 1) % (lat_stop * longt_stop)
-      b = (index + longt_stop + 1) % (lat_stop * longt_stop)
+      b = (index + (longt_stop + 1)) % (lat_stop * longt_stop)
 
       add_polygon(edges, points[index][0], points[index][1], points[index][2], points[t][0], points[t][1], points[t][2], points[next][0], points[next][1], points[next][2])
       add_polygon(edges, points[t][0], points[t][1], points[t][2], points[b][0], points[b][1], points[b][2], points[next][0], points[next][1], points[next][2])
